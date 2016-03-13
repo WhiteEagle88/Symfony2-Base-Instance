@@ -2,6 +2,7 @@
 
 namespace Application\Sonata\AdminBundle\Controller;
 
+use FOS\UserBundle\Form\Handler\RegistrationFormHandler;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -18,6 +19,7 @@ class RegistrationController extends BaseRegistrationController
     public function registerAction()
     {
         $form = $this->container->get('application.registration.form');
+        /** @var RegistrationFormHandler $formHandler */
         $formHandler = $this->container->get('fos_user.registration.form.handler');
         $confirmationEnabled = $this->container->getParameter('fos_user.registration.confirmation.enabled');
 

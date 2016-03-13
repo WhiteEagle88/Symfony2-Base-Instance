@@ -2,11 +2,15 @@
 apt-get update -y
 apt-get install git vim rsync nginx curl -y
 
-apt-get install -y php5 php5-fpm php5-cli php5-common php5-intl php5-json php5-mysql php5-gd php5-imagick php5-curl php5-mcrypt php5-dev php5-xdebug
+add-apt-repository ppa:ondrej/php
+
+sudo apt-get update -y
+
+apt-get install -y php7.0 php7.0-fpm php7.0-cli php7.0-common php7.0-intl php7.0-json php7.0-mysql php7.0-gd php7.0-curl php7.0-mcrypt php7.0-dev
 
 #php
-cp /vagrant/configs/files/php.ini /etc/php5/fpm/php.ini
-cp /vagrant/configs/files/php.ini /etc/php5/cli/php.ini
+cp /vagrant/configs/files/php.ini /etc/php/7.0/fpm/php.ini
+cp /vagrant/configs/files/php.ini /etc/php/7.0/cli/php.ini
 
 #composer
 curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer

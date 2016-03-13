@@ -12,7 +12,7 @@ echo "server {
           }
 
           location ~ ^/(app|app_dev|config)\.php(/|$) {
-              fastcgi_pass unix:/var/run/php5-fpm.sock;
+              fastcgi_pass unix:/var/run/php7.0-fpm.sock;
               fastcgi_split_path_info ^(.+\.php)(/.*)$;
               include fastcgi_params;
               fastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;
@@ -29,4 +29,4 @@ echo "server {
 ln -s /etc/nginx/sites-available/symfony /etc/nginx/sites-enabled/
 
 service nginx restart
-service php5-fpm restart
+service php7.0-fpm restart
